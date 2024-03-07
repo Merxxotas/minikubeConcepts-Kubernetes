@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-javamaven #The name of the Kubernetes Deployment to be created in the Kubernetes cluster
+  labels:
+    app: hello-javamaven
+spec:
+  replicas: 2 #The number of pods to be created in the Kubernetes cluster for the application container
+  selector:
+    matchLabels:
+      app: hello-javamaven
+  template:
+    metadata:
+      labels:
+        app: hello-javamaven
+    spec:
+      containers:
+      - name: hello-javamaven #The name of the application container
+        image: merxxaz/helloworldjavamaven:v1.1.0 #The Docker image for building the application container
+        ports:
+        - containerPort: 8003 #The port for the application container

@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-javamaven #The name of the Kubernetes Service to be created in the Kubernetes cluster
+spec:
+  selector:
+    app: hello-javamaven
+  type: ClusterIP #Type of the Kubernetes Service
+  ports:
+  - protocol: TCP
+    port: 8003 #Service port
+    targetPort: 8003 #The port for the application container
