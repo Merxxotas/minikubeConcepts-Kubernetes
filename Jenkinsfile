@@ -42,8 +42,7 @@ pipeline{
             steps{
                 sshCommand(remote: remote, command: 'minikube kubectl -- apply -f /home/brayanmarin/DevOps/miniProjects/4thWeek/pythonAppDeploy/deployment.yml') 
                 sshCommand(remote: remote, command: 'minikube kubectl -- apply -f /home/brayanmarin/DevOps/miniProjects/4thWeek/pythonAppDeploy/service.yml')
-                // sshCommand(remote: remote, command: 'minikube kubectl -- apply -f /home/samir/MiniProject-4/hello-maven-deploy/service.yaml')
-                sshCommand(remote: remote, command: 'minikube service python-app-service')
+                sshCommand(remote: remote, command: 'minikube service python-app-service --url | xargs curl')
             }
         }
         
