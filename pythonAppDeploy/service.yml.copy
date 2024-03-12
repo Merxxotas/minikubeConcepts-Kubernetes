@@ -4,9 +4,9 @@ metadata:
   name: python-app-service #The name of the Kubernetes Service to be created in the Kubernetes cluster
 spec:
   selector:
-    app: python-app
+    app: python-app-service
   type: LoadBalancer #Type of the Kubernetes Service
   ports:
-  - protocol: TCP
-    port: 8004 #Service port
-    targetPort: 8004 #The port for the application container
+    - protocol: TCP
+      port: 8004 #Service port
+      targetPort: 8004 #The port for the application container
